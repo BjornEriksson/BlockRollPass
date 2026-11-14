@@ -149,6 +149,7 @@ class BlockRollPass {
       visualX: startX
     });
   }
+  
   launch() {
     if (this.isRunning) return;
 
