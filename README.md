@@ -1,35 +1,47 @@
 # BlockRollPass Captcha
 
-En lättlagd, beroendefri och fysikinspirerad HTML5 Canvas-captcha där tecken rullar fram som osynliga block längs ett golv. Utformad för att motverka standardiserade OCR-skrapare och enfrasbildigenkänning.
+A lightweight, dependency-free, physics-inspired HTML5 Canvas CAPTCHA where characters tumble like invisible blocks along a floor. Designed to deter standard OCR scrapers and single-frame image recognition.
 
-## Live-demo
+## Live Demo
 
-Testa BlockRollPass direkt i webbläsaren: **[Live Demo på GitHub Pages](https://github.io)**
+Test BlockRollPass directly in your browser: **[Live Demo on GitHub Pages](https://bjorneriksson.github.io/BlockRollPass/)**
 
-## Funktioner
+## Features
 
-* **Rullande block-fysik:** Tecken pivoterar 90 grader i taget kring sina hörn.
-* **Konfigurerbart flöde:** Stöder både höger-till-vänster (`rtl`) och vänster-till-höger (`ltr`).
-* **Ren HTML5 Canvas:** Inga DOM-textnoder som kan skrapas.
-* **Smarta lockbeten:** Blandar versaler (`A–Z`) med ASCII-symboler och geometriska former utan överlappning.
-* **Otvetydighet:** Utesluter lättförväxlade tecken (som `I` och `O`).
+* **Tumbling Block Physics:** Characters pivot 90 degrees at a time around their corners.
+* **Configurable Flow:** Supports both right-to-left (`rtl`) and left-to-right (`ltr`) directions.
+* **Pure HTML5 Canvas:** No DOM text nodes available for scraping.
+* **Smart Decoys:** Mixes uppercase letters (`A–Z`) with ASCII symbols and geometric shapes without overlapping.
+* **High Legibility:** Excludes easily confused characters (such as `I` and `O`).
 
-## Kom igång
+## Getting Started
 
-1. Klona repot:
+1. Clone the repository:
    ```bash
    git clone https://github.com
    ```
-2. Inkludera `style.css` och `blockrollpass.js` i din HTML-sida tillsammans med canvas-elementet och initiera skriptet enligt dokumentationen i källkoden.
+2. Open `index.html` in your browser, or include `style.css` and `blockrollpass.js` in your own project alongside the required HTML elements.
 
-## Konfiguration
+## Configuration
 
-Skicka in ett inställnings-objekt vid initiering av `new BlockRollPass('blockrollpass-canvas', { ... })` för att justera parametrar som `letterCount`, `direction`, `tumbleSpeed`, `blockSize` och `floorY`. Fullständig parameterlista finns i originalfilen på GitHub.
+Pass an options object when initializing `new BlockRollPass('blockrollpass-canvas', { ... })` to customize parameters:
 
-## Säkerhetsnotering
+| Option | Default | Description |
+| :--- | :--- | :--- |
+| `letterCount` | `5` | Number of target uppercase letters to solve. |
+| `direction` | `'rtl'` | Tumbling direction (`'rtl'` or `'ltr'`). |
+| `tumbleSpeed` | `0.045` | Base step progress per frame (`0.01` – `0.1`). |
+| `blockSize` | `44` | Size of the invisible rolling square block in pixels. |
+| `floorY` | `82` | Vertical Y-position of the floor in pixels. |
+| `decoyMode` | `'mixed'` | Decoy types: `'mixed'`, `'symbols'`, `'shapes'`, or `'none'`. |
+| `decoyChance` | `0.35` | Probability (`0.0` – `1.0`) of inserting a decoy item. |
 
-Detta bibliotek hanterar klientsides-UI och fysikmotor. I produktion bör du alltid komplettera med validering på serversidan.
+*(See `blockrollpass.js` for the complete list of styling and spacing options.)*
 
-## Licens
+## Security Note
 
-Öppen källkod under MIT-licensen. Skapad av [BjornEriksson](https://github.com).
+This library handles the client-side UI and physics engine. In a production environment, always pair it with server-side validation and session tokens.
+
+## License
+
+Open-source under the MIT License. Created by [BjornEriksson](https://github.com).
