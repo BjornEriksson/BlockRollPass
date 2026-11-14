@@ -1,0 +1,53 @@
+<!--
+  BlockRollPass Captcha - Demo Page
+  Repository: https://github.com
+  Author: BjornEriksson
+  License: MIT
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlockRollPass Captcha</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <h1>BlockRollPass</h1>
+    <p class="subtitle">Type only the uppercase letters (A–Z) tumbling across the screen.</p>
+
+    <div class="captcha-box">
+      <canvas id="blockrollpass-canvas" width="420" height="100"></canvas>
+      
+      <div class="controls-row">
+        <button id="launch-btn" type="button">Launch</button>
+        <input type="text" id="captcha-input" placeholder="e.g. ABCDE" autocomplete="off" spellcheck="false" disabled>
+        <button id="verify-btn" type="button" disabled>Verify</button>
+      </div>
+      
+      <div id="status-msg" class="status"></div>
+    </div>
+  </main>
+
+  <script src="blockrollpass.js"></script>
+  <script>
+    // Example initialization with custom configuration
+    document.addEventListener('DOMContentLoaded', () => {
+      new BlockRollPass('blockrollpass-canvas', {
+        letterCount: 5,
+        direction: 'rtl',       // 'rtl' (right-to-left) or 'ltr' (left-to-right)
+        tumbleSpeed: 0.045,     // Base tumbling speed per frame
+        blockSize: 44,          // Size of the invisible rolling square block (px)
+        fontSize: 32,
+        fontFamily: '"Courier New", monospace',
+        shapeRadius: 12,
+        itemColor: '#f8fafc',
+        decoyMode: 'mixed',     // 'mixed', 'symbols', 'shapes', 'none'
+        decoyChance: 0.35
+      });
+    });
+  </script>
+</body>
+</html>
