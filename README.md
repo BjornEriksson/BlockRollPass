@@ -6,6 +6,8 @@ A lightweight, dependency-free, physics-inspired HTML5 Canvas CAPTCHA where char
 
 Test BlockRollPass directly in your browser: **[Live Demo on GitHub Pages](https://bjorneriksson.github.io/BlockRollPass/)**
 
+https://github.com/user-attachments/assets/01157c68-6b29-41e2-b616-033158e38426
+
 ## Features
 
 * **Tumbling Block Physics:** Characters pivot 90 degrees at a time around their corners.
